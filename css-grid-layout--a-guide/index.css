@@ -13,11 +13,27 @@
     /* grid-template-columns: 20% 1fr 300px; */
     /* grid-template-columns: 1fr 1fr 1fr; */
     /* grid-template-columns: 1fr 1fr; */
-    grid-template-columns: minmax(100px, 500px) 1fr;
+    /* grid-template-columns: minmax(100px, 500px) 1fr; */
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-template-columns: min-content 1fr max-content; */
+    grid-template-columns: repeat(auto-fill, 300px);
+    /* grid-template-columns: repeat(auto-fit, 23rem); */
+    
+    align-items: center;    /* align vertically */
+    justify-items: center;  /* align horizontally */
+    align-content: center;  /* aligns grid container vertically ?! */
+    justify-content: center; /* align grid container in the horizontal direction */
+    
+    /* height: 80vh; */
+
     /* grid-template-rows: 1fr 60px; */
     /* grid-template-rows: 2fr 1fr; */
     /* grid-template-rows: 1fr 1.2fr; */
-    grid-template-rows: 1fr 200px;
+    /* grid-template-rows: 1fr 200px; */
+    grid-template-rows: 1fr 300px;
+    /* grid-auto-rows: min-content; */
+    grid-auto-rows: 180px;
+
     column-gap: 10px;
     row-gap: 30px;
     /* gap: 30px 10px; (row-gap column-gap) */
@@ -43,4 +59,16 @@
 
 .child--3 {
     background-color: #9b59b6;
+}
+
+.child--4 {
+    background-color: orange;
+}
+
+.child--5 {
+    background-color: salmon;
+}
+
+.child--6 {
+    background-color: teal;
 }
