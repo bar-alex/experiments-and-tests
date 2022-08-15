@@ -1,0 +1,13 @@
+https://www.youtube.com/watch?v=sFsRylCQblw
+
+:: generate the icon assets from a single logo.png file
+npx pwa-asset-generator logo.png icons
+
+:: serve the pwa in the browser
+npx serve
+
+:: verify stuff
+- console: check all is well, no errors
+- applications: test the icons, the service worker
+- lighthouse: analyze the performance and suitability of the pwa
+

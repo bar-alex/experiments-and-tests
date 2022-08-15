@@ -1,6 +1,7 @@
 {
     "name": "Breeze.Sample",
     "short_name": "Breeze",
+    "description": "A sample PWA app, just like a breeze",
     "start_url": "/?home=true",
     "icons": [
         {
