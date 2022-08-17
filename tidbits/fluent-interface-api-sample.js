@@ -58,10 +58,27 @@ function myFunc2 (initial = 0) {
         sub:  function (a) { context -= a; return this; },
         mult: function (a) { context *= a; return this; },
         div:  function (a) { context /= a; return this; },
-        result: function() { return context },
+        result: _ => context,   // doesn't need this
     }
 
 }
 
 console.log( 'func closure', myFunc2().add(5).mult(4).div(3).result(), 
     '\t // myFunc2().add(5).mult(4).div(3).result()' )
+
+
+// function myFunc3 (initial = 0) {
+//     let context = initial;
+//     const getResult = _ => context;
+//     return {
+//         add:  function (a) { context += a; return this; },
+//         sub:  function (a) { context -= a; return this; },
+//         mult: function (a) { context *= a; return this; },
+//         div:  function (a) { context /= a; return this; },
+//         result: getResult,
+//     }
+
+// }
+
+// console.log( 'func closure+', myFunc3().add(5).mult(4).div(6).result(), 
+//     '\t // myFunc3().add(5).mult(4).div(6).result' )
