@@ -69,16 +69,17 @@ console.log( 'func closure', myFunc2().add(5).mult(4).div(3).result(),
 
 // function myFunc3 (initial = 0) {
 //     let context = initial;
-//     const getResult = _ => context;
+//     // const getResult = _ => context;
 //     return {
 //         add:  function (a) { context += a; return this; },
 //         sub:  function (a) { context -= a; return this; },
 //         mult: function (a) { context *= a; return this; },
 //         div:  function (a) { context /= a; return this; },
-//         result: getResult,
+//         getResult: _ => context,
+//         result: (this).getResult(),
 //     }
 
 // }
 
-// console.log( 'func closure+', myFunc3().add(5).mult(4).div(6).result(), 
+// console.log( 'func closure+', myFunc3().add(5).mult(4).div(6).result, 
 //     '\t // myFunc3().add(5).mult(4).div(6).result' )
