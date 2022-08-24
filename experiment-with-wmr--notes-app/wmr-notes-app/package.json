@@ -10,7 +10,8 @@
 	},
 	"dependencies": {
 		"preact": "^10.10.6",
-		"preact-iso": "^2.3.0"
+		"preact-iso": "^2.3.0",
+		"react-icons": "^4.4.0"
 	},
 	"devDependencies": {
 		"wmr": "^3.7.2"
