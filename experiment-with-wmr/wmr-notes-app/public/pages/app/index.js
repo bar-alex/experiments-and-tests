@@ -7,7 +7,7 @@ export default function NoteApp() {
 	const [notes, setNotes] = useState([]);
 	const [curNote, setCurrNote] = useState('');
 
-	const addNote = note_content => {
+	const addNote = (note_content) => {
 		notes.push({
 			id: notes.length,
 			note: note_content
@@ -15,13 +15,14 @@ export default function NoteApp() {
 		setCurrNote('');
 	};
 
-	const deleteNote = note_idx => {
-		const new_notes = notes.filter(note => note.id !== note_idx);
+	const deleteNote = (note_idx) => {
+		const new_notes = notes.filter( noteObj => noteObj.id !== note_idx);
 		setNotes(new_notes);
 	};
 
 	const extractNotes = () => {
-		Object.values(notes).map(note => (
+		//Object.values(notes).map(note => (
+		notes.map(note => (
 			<li key={note.id} class={styles.noteItem}>
 				<span class={styles.deleteIcon} onClick={ e => deleteNote(note.id) }>
 					<FaTrash size={20} color={"red"} />

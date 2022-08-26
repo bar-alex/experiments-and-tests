@@ -4,7 +4,7 @@
     height: 100vh;
 }
 
-@media (min-width: 768.11px) {
+@media (min-width: 768px) {
     .inputArea {
         color: black;
     }
