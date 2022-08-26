@@ -26,3 +26,20 @@
     border-radius: 3px;
     margin-right: 20px;
 }
+
+
+.noteItem {
+    padding: 16px;
+    border-radius: 3px;
+    background-color: #f2f9fb;
+    box-shadow: 1px 1px 3px 1px #efefef;
+    font-size: 20px;
+    max-width: 400px;
+    margin: 10px auto;
+}
+.deleteIcon {
+    padding: 14px;
+    background-color: #eee;
+    border-radius: 3px;
+    margin-right: 20px;
+}
