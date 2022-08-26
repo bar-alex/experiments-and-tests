@@ -4,6 +4,11 @@
     height: 100vh;
 }
 
+
+.inputArea {
+    color: slategrey;
+}
+
 @media (min-width: 768px) {
     .inputArea {
         color: black;
