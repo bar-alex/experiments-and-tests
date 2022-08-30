@@ -1,0 +1,26 @@
+body {
+    background-color: #111;
+    overflow: hidden;
+    // perspective: 800px;
+}
+
+.scene {
+    min-height: 100vh;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    // perspective: 800px;
+}
+
+.box {
+    width: 200px; height: 200px;
+    background-color: green;
+    animation: rotate 10s infinite linear;
+    transform: perspective(800px);
+    // perspective: 800px;
+
+    @keyframes rotate {
+        to { transform: perspective(800px) rotateY(360deg); }
+        // to { transform: rotateY(360deg); }
+    }
+}

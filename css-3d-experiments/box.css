@@ -1,1 +1,30 @@
-/*# sourceMappingURL=box.css.map */
+body {
+  background-color: #111;
+  overflow: hidden;
+}
+
+.scene {
+  min-height: 100vh;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: green;
+  -webkit-animation: rotate 10s infinite linear;
+          animation: rotate 10s infinite linear;
+  transform: perspective(800px);
+}
+@-webkit-keyframes rotate {
+  to {
+    transform: perspective(800px) rotateY(360deg);
+  }
+}
+@keyframes rotate {
+  to {
+    transform: perspective(800px) rotateY(360deg);
+  }
+}/*# sourceMappingURL=box.css.map */

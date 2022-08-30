@@ -1,0 +1,26 @@
+:: Amit's CSS 3D talk on CSS Cafe
+https://www.youtube.com/watch?v=oDXPIFHqyGI&list=PLIfpjYCKV3lVpwHYCExIUAl9tWB3UzcG6&index=23
+
+
+What triggers reflows: https://gist.github.com/paulirish/5d52fb081b3570c81e3a
+CSS Triggers: https://csstriggers.com
+CSS Triggers (Way Back Machine version): https://web.archive.org/web/20220727225220/https://csstriggers.com/
+CSS Triggers (Github project): https://github.com/GoogleChromeLabs/css-triggers
+https://codepen.io/amit_sheen
+LogRocket CSS Meetup with Amit: How To Use CSS Animations And Stay Performant (And Accessible): https://www.youtube.com/watch?v=93kLe0wJbJY&feature=youtu.be
+Amit's CSS Day talk: Getting Creative with Keyframes: https://www.youtube.com/watch?v=kXh3EMpaLFo
+
+
+https://www.crmarsh.com/svg-performance/
+https://kellegous.com/j/2013/01/26/layout-performance/
+https://web.dev/avoid-large-complex-layouts-and-layout-thrashing/
+
+
+https://freefrontend.com/css-animation-examples/
+
+
+toaster: https://codepen.io/jh3y/pen/KKVjLrx
+
+
+
+
