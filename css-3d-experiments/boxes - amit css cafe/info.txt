@@ -22,5 +22,5 @@ https://freefrontend.com/css-animation-examples/
 toaster: https://codepen.io/jh3y/pen/KKVjLrx
 
 
-
+- no reflows or repaints
 

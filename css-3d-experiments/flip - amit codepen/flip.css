@@ -1,0 +1,187 @@
+:root {
+	--speed: 750ms;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #ddd;
+	color: #aaa;
+}
+
+#Top {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+}
+
+.hexagon {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	margin-top: 100px;
+}
+
+.hexPlaceholders {
+	position: absolute;
+	top: 13.4px;
+	left: calc(50% - 50px);
+	width: 100px;
+	height: 173.2px;
+	background-color: #ccc;
+}
+
+.hexPlaceholders::before,
+.hexPlaceholders::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 50;
+	height: 173.2px;
+	border: solid transparent;
+	border-width: 86.6px 0;
+}
+
+.hexPlaceholders:before {
+	border-left: solid 50px #ccc;
+	left: 100%;
+}
+
+.hexPlaceholders:after {
+	border-right: solid 50px #ccc;
+	right: 100%;
+}
+
+.hexCont {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 100px;
+	height: 200px;
+	perspective: 420px;
+	perspective-origin: 100px 100px;
+	transform-origin: 0px 100px;
+	animation: rotateCont calc(var(--speed) * 6) infinite steps(6, start);
+}
+
+.hexCont:nth-child(2) {
+	perspective-origin: 420px 100px;
+}
+
+@keyframes rotateCont {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.flipTriangle,
+.flipShadow {
+	position: absolute;
+	top: 13.4px;
+	left: 0px;
+	width: 0px;
+	height: 0px;
+	border: solid transparent;
+	border-width: 0 50px;
+	transform-origin: bottom;
+}
+
+.flipTriangle {
+	animation: flipTriangle var(--speed) infinite ease-in-out,
+		triablgeColor calc(var(--speed) * 16) calc(var(--speed) / -2) infinite
+			steps(1, start);
+}
+
+@keyframes flipTriangle {
+	from {
+		transform: rotateX(0deg);
+	}
+	to {
+		transform: rotateX(-180deg);
+	}
+}
+
+@keyframes triablgeColor {
+	0%,
+	100% {
+		border-bottom: solid 86.6px #d50000;
+	}
+	6.25% {
+		border-bottom: solid 86.6px #c51162;
+	}
+	12.5% {
+		border-bottom: solid 86.6px #aa00ff;
+	}
+	18.75% {
+		border-bottom: solid 86.6px #6200ea;
+	}
+	25% {
+		border-bottom: solid 86.6px #304ffe;
+	}
+	31.25% {
+		border-bottom: solid 86.6px #2962ff;
+	}
+	37.5% {
+		border-bottom: solid 86.6px #0091ea;
+	}
+	43.75% {
+		border-bottom: solid 86.6px #00b8d4;
+	}
+	50% {
+		border-bottom: solid 86.6px #00bfa5;
+	}
+	56.25% {
+		border-bottom: solid 86.6px #00c853;
+	}
+	62.5% {
+		border-bottom: solid 86.6px #64dd17;
+	}
+	68.75% {
+		border-bottom: solid 86.6px #aeea00;
+	}
+	75% {
+		border-bottom: solid 86.6px #ffd600;
+	}
+	81.25% {
+		border-bottom: solid 86.6px #ffab00;
+	}
+	87.5% {
+		border-bottom: solid 86.6px #ff6d00;
+	}
+	93.75% {
+		border-bottom: solid 86.6px #dd2c00;
+	}
+}
+
+.flipShadow {
+	border-bottom: solid 86.6px #0003;
+	animation: flipShadow var(--speed) infinite ease-in-out,
+		shadowBlur calc(var(--speed) / 2) infinite alternate ease-in-out;
+}
+
+@keyframes flipShadow {
+	from {
+		transform: rotateX(0deg);
+	}
+	to {
+		transform: rotateX(180deg);
+	}
+}
+
+@keyframes shadowBlur {
+	from {
+		filter: blur(0px);
+	}
+	to {
+		filter: blur(5px);
+	}
+}
