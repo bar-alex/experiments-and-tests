@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+* {
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Raleway, sans-serif;
+	background: #fafafa;
+	overflow-x: hidden;
+	text-align: left;
+}
+
+.header {
+	position: relative;
+	background: #9fa8da;
+	padding: 1em;
+	color: #fff;
+	box-shadow: 0px 5px 5px #ddd;
+	border-bottom: solid 1px #7986cb;
+}
+
+.fa-times {
+	padding: 1em;
+	cursor: pointer;
+}
+
+.menuCont .menuBtn {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 1em;
+	transition: all 0.5s;
+	cursor: pointer;
+	backface-visibility: hidden;
+}
+
+.menuCont:focus .fa-bars {
+	transform: rotateY(180deg);
+	pointer-events: none;
+}
+
+.menuCont .fa-times {
+	pointer-events: none;
+	transform: rotateY(-180deg);
+}
+
+.menuCont:focus .fa-times {
+	transform: rotateY(0deg);
+}
+
+.menuCont .slider {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 320px;
+	padding: 3em 1em;
+	background: #333;
+	transform: translate(100%, calc(100% + 0.5em));
+	transition: all 0.5s;
+}
+
+.menuCont:focus .slider {
+	transform: translate(0%, calc(100% + 0.5em));
+}
+
+.menuCont a {
+	display: block;
+	padding: 1em;
+	text-align: center;
+	border: solid #444;
+	border-width: 1px 0;
+	margin: 0.25em auto;
+	color: #aaa;
+	cursor: pointer;
+}
+
+.menuCont a:hover {
+	color: #fff;
+	font-weight: bold;
+}

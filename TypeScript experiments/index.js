@@ -1,3 +1,4 @@
+"use strict";
 // import * as _ from 'lodash';
 // const person: Person = {
 //     first: 'Jeff',
