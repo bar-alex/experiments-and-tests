@@ -1,0 +1,76 @@
+@use "sass:math";
+
+$size: 50px;
+$speed: 5s;
+
+body {
+    perspective: $size*15;
+}
+
+*:not(:empty) {
+    transform-style: preserve-3d;
+}
+
+.scene {
+    position: relative;
+    animation: sceneRotate $speed * 7 infinite linear;
+    @keyframes sceneRotate {
+        from { transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg); }
+        to { transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg); }
+    }
+}
+
+.cube {
+    position: absolute;
+    width: $size; height: $size;
+    animation: cube $speed var(--delay) infinite ease-in-out alternate;
+
+    @keyframes cube {
+        0%, 25%, 100% {
+            transform: translate3d(calc(-50% + var(--tx, 0px)), calc(-50% + var(--ty, 0px)), var(--tz, 0px)) scale3d(0.025, 0.025, 0.025);
+
+        }
+        50% {
+            transform: translate3d(calc(-50% + var(--tx, 0px)), calc(-50% + var(--ty, 0px)), var(--tz, 0px)) scale3d(1, 1, 1);
+        }
+    }
+    
+    $size3d: 5;
+    $midPoint: ($size3d - 1) / 2;
+    $maxD: math.pow((math.pow($midPoint, 2) * 3), 0.5);
+
+    @for $i from 0 to math.pow($size3d, 3) {
+        &:nth-child(#{$i + 1}) {
+            $x: (($i % $size3d) - $midPoint) * 1.1;
+            $y: ((floor($i / $size3d) % $size3d) - $midPoint) * 1.1;
+            $z: ((floor($i / math.pow($size3d, 2)) % $size3d) - $midPoint) * 1.1;
+            $d: 1 - math.pow((math.pow($x, 2) + math.pow($y, 2) + math.pow($z, 2)), 0.5) / $maxD;
+
+            --tx: #{$x * $size};
+            --ty: #{$y * $size};
+            --tz: #{$z * $size};
+            --delay: #{$d * $speed * -0.2};
+            --hue: #{200 + $d * 40};
+        }
+    }
+
+    & > .side {
+        position: absolute;
+        width: 100%; height: 100%;
+        background-color: hsla(var(--hue, 0), 100%, 80%, 0.5);
+        box-shadow: 0 0 $size*0.25 #0007 inset;
+        border: 1px solid #fff;
+
+        @for $i from 0 to 4 {
+            &:nth-child(#{$i + 1}) {
+                transform: rotateY(#{$i * 90}deg) translateX(50%) rotateY(90deg);
+            }
+        }
+        
+        @for $i from 0 to 2 {
+            &:nth-child(#{$i + 5}) {
+                transform: rotateZ(#{$i * 180}deg) translateY(50%) rotateX(90deg);
+            }
+        }
+    }
+}

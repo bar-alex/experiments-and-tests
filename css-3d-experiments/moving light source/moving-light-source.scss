@@ -1,0 +1,113 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+}
+
+$speed: 8s;
+
+body {
+    background-color: #000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+    perspective: 15em;
+}
+
+.scene {
+    position: relative;
+}
+
+.lamp {
+    position: absolute;
+    top: -3em; left: 0em;
+    width: 1.5em; height: 1em;
+    animation: lampRotate $speed infinite linear;
+    transform-origin: left;
+
+    @keyframes lampRotate {
+        from { transform: rotateY(0deg) translateX(-4em) rotateZ(47.5deg); }
+        to { transform: rotateY(360deg) translateX(-4em) rotateZ(47.5deg); }
+    }
+
+    &_side {
+        position: absolute;
+        top: 0em; left: 0;
+        width: 250%; height: 55%;
+        clip-path: polygon(0 50%, 100% 0, 100% 100%);
+        background-image: linear-gradient(90deg, #1230 10%, #123 10%, aqua 50%, #fff1 50%, #fff0);
+        transform-origin: left;
+    
+        @for $i from 0 to 8 {
+            &:nth-child(#{$i + 1}) {
+            transform: rotateX(#{360deg / 8 * $i}) rotateY(10deg);
+            }
+        }
+    }
+}
+
+.ball {
+    position: absolute;
+    top: 0.5em; left: -1em;
+    width: 2em; height: 2em;
+    background-color: #000;
+    border-radius: 50%;
+    background-image:
+        radial-gradient(#fedc, #1000 35%),
+        repeating-radial-gradient(circle at center, #100 0px, #0000 3px 7px, #100 10px),
+        repeating-radial-gradient(circle at top   , #100 0px, #0000 3px 7px, #100 10px),
+        repeating-radial-gradient(circle at right , #100 0px, #0000 3px 7px, #100 10px),
+        repeating-radial-gradient(circle at bottom, #100 0px, #0000 3px 7px, #100 10px),
+        repeating-radial-gradient(circle at left  , #000 0px, #0000 3px 7px, #100 10px),
+        ;
+    background-size: 200% 200%, 100%, 100%, 100%, 100%, 100%;
+    background-repeat: no-repeat;
+
+    animation: 
+        ballBPX $speed infinite ease-in-out,
+        ballBPY $speed $speed*-0.25 infinite ease-in-out,
+        ;
+
+    @keyframes ballBPX {
+        0%, 100% { background-position-x: 100%; }
+        50% { background-position-x: 0%; }
+    }
+    @keyframes ballBPY {
+        0%, 100% { background-position-y: 125%; }
+        50% { background-position-y: 75%; }
+    }
+}
+
+.floor {
+    font-size: 0.2em;
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 75em; height: 75em;
+    background-color: #456;
+    overflow: hidden;
+    transform: translate(-50%, -50%) rotateX(90deg) translateZ(-12.5em);
+    background-image:
+        repeating-linear-gradient(0deg,   #345 0 1em, #0000 1em 2em),
+        repeating-linear-gradient(60deg,  #345 0 1em, #0000 1em 2em),
+        repeating-linear-gradient(120deg, #345 0 1em, #0000 1em 2em),
+        ;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 142%; height: 142%;
+        background-image:
+            radial-gradient(circle at calc(50% + 3em) 50%, #000, #0000 10em),
+            radial-gradient(circle at calc(50% + 20em) 50%, #0003, #000 30em);
+        animation: floorSR $speed infinite linear;
+
+        @keyframes floorSR {
+            from { transform: translate(-50%, -50%) rotate(360deg);}
+            to { transform: translate(-50%, -50%) rotate(0deg);}
+        }
+    }
+}

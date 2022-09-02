@@ -1,0 +1,60 @@
+* {
+    margin: 0 auto;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.cont {
+    position: fixed;
+    top: 50px;
+    left: calc(50% - 160px);
+    width: 320px;
+    height: 320px;
+    /* background: rgba(100,100,100,0.05); */
+}
+
+.tur {
+    position: absolute;
+    top: 155px;
+    left: 10px;
+    width: 20px;
+    height: 10px;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    animation-name: tur_left, tur_width;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out ;
+    /* animation-timing-function: ease ; */
+    animation-duration: 10.8s;
+    animation-iteration-count: infinite;
+}
+
+.blue {
+    background: #536DFE;
+}
+
+.green {
+    background: #8BC34A;
+}
+
+@keyframes tur_left {
+    0% { left: 10px; }
+    2% { left: 310px; }
+    50% { left: 310px; }
+    52% { left: 10px; }
+    100% { left: 10px; }
+}
+
+@keyframes tur_width {
+    0% { width: 20px; }
+    1% { width: 220px; }
+    2% { width: 20px; }
+    50% { width: 20px; }
+    51% { width: 220px; }
+    52% { width: 20px; }
+    100% { width: 20px; }
+}

@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Glory:wght@800&display=swap");
+html {
+  font-size: 36px;
+}
+
+body {
+  font-family: "Glory", sans-serif;
+  background-image: radial-gradient(circle, #333, #000 13em);
+}
+
+.card {
+  position: relative;
+}
+
+.back {
+  position: absolute;
+  top: -6em;
+  left: -6em;
+  width: 12em;
+  height: 12em;
+  background-color: #333;
+}
+
+.blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-animation: blobAngle 15s var(--delay) infinite linear;
+          animation: blobAngle 15s var(--delay) infinite linear;
+  filter: blur(2em);
+}
+.blob::after {
+  content: "";
+  position: absolute;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  background-color: var(--color);
+  -webkit-animation: blobMove 3s var(--delay2) infinite ease-in-out alternate;
+          animation: blobMove 3s var(--delay2) infinite ease-in-out alternate;
+}
+@-webkit-keyframes blobAngle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes blobAngle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes blobMove {
+  from {
+    transform: translate(-50%, -150%);
+  }
+  to {
+    transform: translate(-50%, 50%);
+  }
+}
+@keyframes blobMove {
+  from {
+    transform: translate(-50%, -150%);
+  }
+  to {
+    transform: translate(-50%, 50%);
+  }
+}
+.blob:nth-child(1) {
+  --delay: 0s;
+  --delay2: 0s;
+  --color: hsl(0deg, 100%, 50%);
+}
+.blob:nth-child(2) {
+  --delay: -3s;
+  --delay2: -0.6s;
+  --color: hsl(72deg, 100%, 50%);
+}
+.blob:nth-child(3) {
+  --delay: -6s;
+  --delay2: -1.2s;
+  --color: hsl(144deg, 100%, 50%);
+}
+.blob:nth-child(4) {
+  --delay: -9s;
+  --delay2: -1.8s;
+  --color: hsl(216deg, 100%, 50%);
+}
+.blob:nth-child(5) {
+  --delay: -12s;
+  --delay2: -2.4s;
+  --color: hsl(288deg, 100%, 50%);
+}
+
+.text {
+  position: absolute;
+  top: -6em;
+  left: -6em;
+  width: 12em;
+  height: 12em;
+  background-color: #000;
+  mix-blend-mode: darken;
+  padding: 1em;
+  letter-spacing: 1px;
+  line-height: 1;
+}/*# sourceMappingURL=backlit-card.css.map */

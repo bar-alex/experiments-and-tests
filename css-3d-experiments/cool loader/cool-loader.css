@@ -1,0 +1,71 @@
+* {
+    margin: 0 auto;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.cont {
+    position: fixed;
+    top: 50px;
+    left: calc(50% - 160px);
+    width: 320px;
+    height: 320px;
+}
+
+.tur {
+    position: absolute;
+    top: 140px;
+    left: 10px;
+    width: 20px;
+    height: 40px;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    animation-name: tur_left, tur_width;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out ;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes tur_left {
+    0% { left: 10px; }
+    10% { left: 310px; }
+    50% { left: 310px; }
+    60% { left: 10px; }
+    100% { left: 10px; }
+}
+
+@keyframes tur_width {
+    0% { width: 20px; }
+    5% { width: 320px; }
+    10% { width: 20px; }
+    50% { width: 20px; }
+    55% { width: 320px; }
+    60% { width: 20px; }
+}
+
+.cont:nth-child(1)  { transform: rotate(000deg); }
+.cont:nth-child(2)  { transform: rotate(018deg); }
+.cont:nth-child(3)  { transform: rotate(036deg); }
+.cont:nth-child(4)  { transform: rotate(054deg); }
+.cont:nth-child(5)  { transform: rotate(072deg); }
+.cont:nth-child(6)  { transform: rotate(090deg); }
+.cont:nth-child(7)  { transform: rotate(108deg); }
+.cont:nth-child(8)  { transform: rotate(126deg); }
+.cont:nth-child(9)  { transform: rotate(144deg); }
+.cont:nth-child(10) { transform: rotate(162deg); }
+
+.cont:nth-child(1)  .tur { animation-delay: 0.0s; background: #0D47A1; }
+.cont:nth-child(2)  .tur { animation-delay: 0.3s; background: #01579B; }
+.cont:nth-child(3)  .tur { animation-delay: 0.6s; background: #006064; }
+.cont:nth-child(4)  .tur { animation-delay: 0.9s; background: #004D40; }
+.cont:nth-child(5)  .tur { animation-delay: 1.2s; background: #1B5E20; }
+.cont:nth-child(6)  .tur { animation-delay: 1.5s; background: #388E3C; }
+.cont:nth-child(7)  .tur { animation-delay: 1.8s; background: #00695C; }
+.cont:nth-child(8)  .tur { animation-delay: 2.1s; background: #0097A7; }
+.cont:nth-child(9)  .tur { animation-delay: 2.4s; background: #0277BD; }
+.cont:nth-child(10) .tur { animation-delay: 2.7s; background: #1565C0; }

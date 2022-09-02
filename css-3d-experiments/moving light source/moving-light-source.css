@@ -1,0 +1,169 @@
+*, *::before, *::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+body {
+  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 75px;
+  perspective: 15em;
+}
+
+.scene {
+  position: relative;
+}
+
+.lamp {
+  position: absolute;
+  top: -3em;
+  left: 0em;
+  width: 1.5em;
+  height: 1em;
+  -webkit-animation: lampRotate 8s infinite linear;
+          animation: lampRotate 8s infinite linear;
+  transform-origin: left;
+}
+@-webkit-keyframes lampRotate {
+  from {
+    transform: rotateY(0deg) translateX(-4em) rotateZ(47.5deg);
+  }
+  to {
+    transform: rotateY(360deg) translateX(-4em) rotateZ(47.5deg);
+  }
+}
+@keyframes lampRotate {
+  from {
+    transform: rotateY(0deg) translateX(-4em) rotateZ(47.5deg);
+  }
+  to {
+    transform: rotateY(360deg) translateX(-4em) rotateZ(47.5deg);
+  }
+}
+.lamp_side {
+  position: absolute;
+  top: 0em;
+  left: 0;
+  width: 250%;
+  height: 55%;
+  -webkit-clip-path: polygon(0 50%, 100% 0, 100% 100%);
+          clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  background-image: linear-gradient(90deg, rgba(17, 34, 51, 0) 10%, #123 10%, aqua 50%, rgba(255, 255, 255, 0.0666666667) 50%, rgba(255, 255, 255, 0));
+  transform-origin: left;
+}
+.lamp_side:nth-child(1) {
+  transform: rotateX(0deg) rotateY(10deg);
+}
+.lamp_side:nth-child(2) {
+  transform: rotateX(45deg) rotateY(10deg);
+}
+.lamp_side:nth-child(3) {
+  transform: rotateX(90deg) rotateY(10deg);
+}
+.lamp_side:nth-child(4) {
+  transform: rotateX(135deg) rotateY(10deg);
+}
+.lamp_side:nth-child(5) {
+  transform: rotateX(180deg) rotateY(10deg);
+}
+.lamp_side:nth-child(6) {
+  transform: rotateX(225deg) rotateY(10deg);
+}
+.lamp_side:nth-child(7) {
+  transform: rotateX(270deg) rotateY(10deg);
+}
+.lamp_side:nth-child(8) {
+  transform: rotateX(315deg) rotateY(10deg);
+}
+
+.ball {
+  position: absolute;
+  top: 0.5em;
+  left: -1em;
+  width: 2em;
+  height: 2em;
+  background-color: #000;
+  border-radius: 50%;
+  background-image: radial-gradient(rgba(255, 238, 221, 0.8), rgba(17, 0, 0, 0) 35%), repeating-radial-gradient(circle at center, #100 0px, rgba(0, 0, 0, 0) 3px 7px, #100 10px), repeating-radial-gradient(circle at top, #100 0px, rgba(0, 0, 0, 0) 3px 7px, #100 10px), repeating-radial-gradient(circle at right, #100 0px, rgba(0, 0, 0, 0) 3px 7px, #100 10px), repeating-radial-gradient(circle at bottom, #100 0px, rgba(0, 0, 0, 0) 3px 7px, #100 10px), repeating-radial-gradient(circle at left, #000 0px, rgba(0, 0, 0, 0) 3px 7px, #100 10px);
+  background-size: 200% 200%, 100%, 100%, 100%, 100%, 100%;
+  background-repeat: no-repeat;
+  -webkit-animation: ballBPX 8s infinite ease-in-out, ballBPY 8s -2s infinite ease-in-out;
+          animation: ballBPX 8s infinite ease-in-out, ballBPY 8s -2s infinite ease-in-out;
+}
+@-webkit-keyframes ballBPX {
+  0%, 100% {
+    background-position-x: 100%;
+  }
+  50% {
+    background-position-x: 0%;
+  }
+}
+@keyframes ballBPX {
+  0%, 100% {
+    background-position-x: 100%;
+  }
+  50% {
+    background-position-x: 0%;
+  }
+}
+@-webkit-keyframes ballBPY {
+  0%, 100% {
+    background-position-y: 125%;
+  }
+  50% {
+    background-position-y: 75%;
+  }
+}
+@keyframes ballBPY {
+  0%, 100% {
+    background-position-y: 125%;
+  }
+  50% {
+    background-position-y: 75%;
+  }
+}
+
+.floor {
+  font-size: 0.2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75em;
+  height: 75em;
+  background-color: #456;
+  overflow: hidden;
+  transform: translate(-50%, -50%) rotateX(90deg) translateZ(-12.5em);
+  background-image: repeating-linear-gradient(0deg, #345 0 1em, rgba(0, 0, 0, 0) 1em 2em), repeating-linear-gradient(60deg, #345 0 1em, rgba(0, 0, 0, 0) 1em 2em), repeating-linear-gradient(120deg, #345 0 1em, rgba(0, 0, 0, 0) 1em 2em);
+}
+.floor:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 142%;
+  height: 142%;
+  background-image: radial-gradient(circle at calc(50% + 3em) 50%, #000, rgba(0, 0, 0, 0) 10em), radial-gradient(circle at calc(50% + 20em) 50%, rgba(0, 0, 0, 0.2), #000 30em);
+  -webkit-animation: floorSR 8s infinite linear;
+          animation: floorSR 8s infinite linear;
+}
+@-webkit-keyframes floorSR {
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+@keyframes floorSR {
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}/*# sourceMappingURL=moving-light-source.css.map */
