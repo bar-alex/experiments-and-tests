@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+* {
+	padding: 0;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Raleway, sans-serif;
+	text-align: center;
+}
+
+h1 {
+	padding: 1em 0;
+}
+
+.gallery {
+	max-width: 900px;
+
+	&__item {
+		background-size: cover;
+		background-position: bottom;
+		display: inline-block;
+		width: 150px;
+		height: 100px;
+		border: 1px solid #aaa;
+		margin: 10px;
+		box-shadow: 0 0 4px #aaa;
+		cursor: pointer;
+	}
+
+	&__item:hover {
+		box-shadow: 2px 2px 5px #aaa;
+	}
+}
+
+.lightbox {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000e;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s;
+
+	&__container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		padding: 10px;
+		background: #000;
+		transition: transform 0.3s 0.3s;
+	}
+
+	&__img {
+		max-width: calc(90vw - 20px);
+		max-height: calc(90vh - 20px);
+	}
+
+	&__title {
+		position: absolute;
+		bottom: 10px;
+		left: 0;
+		width: 100%;
+		background: #000b;
+		padding: 10px 20px;
+		font-size: 150%;
+		color: #fff;
+		text-align: left;
+		opacity: 0;
+		transition: opacity 0.3s 0.6s;
+	}
+
+	&.on {
+		pointer-events: auto;
+		opacity: 1;
+	}
+
+	&.on &__container {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	&.on &__title {
+		opacity: 1;
+	}
+
+	& button {
+		font-family: Raleway, sans-serif;
+		font-weight: bold;
+	}
+
+	&__close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		transform: translate(7.5px, -7.5px);
+		background: red;
+		width: 25px;
+		height: 25px;
+		border: 1px solid #fff;
+		border-radius: 15px;
+		cursor: pointer;
+		color: #fff;
+	}
+
+	&__next,
+	&__back {
+		position: absolute;
+		bottom: -40px;
+		background: none;
+		padding: 10px;
+		border: none;
+		color: #777;
+		outline: none;
+	}
+
+	&__next[onclick],
+	&__back[onclick] {
+		cursor: pointer;
+		color: #fff;
+	}
+
+	&__next {
+		left: 50%;
+	}
+	&__back {
+		right: 50%;
+	}
+}

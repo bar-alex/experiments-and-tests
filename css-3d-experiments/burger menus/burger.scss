@@ -1,0 +1,260 @@
+* {
+	padding: 0;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #ddd;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+:root {
+	--speed: 0.25s;
+}
+
+.menu {
+	position: relative;
+	display: inline-block;
+	background-color: white;
+	box-shadow: 0 0 2px 2px #ccc;
+	width: 5em;
+	height: 5em;
+	margin: 0.5em;
+	cursor: pointer;
+	transition: all 0.25s;
+
+	&:hover {
+		box-shadow: 0 0 1px 1px #bbb;
+	}
+
+	&:nth-child(1) &_line {
+		background-color: #ba68c8;
+	}
+	&:nth-child(2) &_line {
+		background-color: #64b5f6;
+	}
+	&:nth-child(3) &_line {
+		background-color: #4db6ac;
+	}
+	&:nth-child(4) &_line {
+		background-color: #ffd54f;
+	}
+	&:nth-child(5) &_line {
+		background-color: #f06292;
+	}
+
+	&_line {
+		position: absolute;
+		top: 50%;
+		width: 50%;
+		height: 0.5em;
+		border-radius: 0.25em;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		// 01:
+
+		&-a {
+			--top: 33%;
+		}
+		&-b {
+			--top: 50%;
+		}
+		&-c {
+			--top: 67%;
+		}
+
+		&-a,
+		&-b,
+		&-c {
+			width: 50%;
+			top: var(--top);
+			transition: width var(--speed) calc(var(--speed) * 2),
+				top var(--speed) var(--speed);
+
+			.on & {
+				width: 0.5em;
+				top: 50%;
+				transition: width var(--speed) 0s, top var(--speed) var(--speed);
+			}
+		}
+
+		&-d {
+			--deg: 45deg;
+		}
+		&-e {
+			--deg: -45deg;
+		}
+
+		&-d,
+		&-e {
+			width: 0.5em;
+			top: 50%;
+			transform: translate(-50%, -50%) rotate(var(--deg));
+			transition: width var(--speed) 0s;
+
+			.on & {
+				width: 50%;
+				transition: width var(--speed) calc(var(--speed) * 2);
+			}
+		}
+
+		// 02:
+
+		&-f {
+			--top: 33%;
+			--deg: 45deg;
+		}
+		&-h {
+			--top: 67%;
+			--deg: -45deg;
+		}
+
+		&-f,
+		&-h {
+			top: var(--top);
+			transform: translate(-50%, -50%) rotate(0);
+			transition: transform var(--speed), top var(--speed) var(--speed);
+
+			.on & {
+				top: 50%;
+				transform: translate(-50%, -50%) rotate(var(--deg));
+				transition: top var(--speed), transform var(--speed) var(--speed);
+			}
+		}
+
+		&-g {
+			transition: opacity 0s var(--speed);
+
+			.on & {
+				opacity: 0;
+			}
+		}
+
+		// 03:
+
+		&-i {
+			--top: 33%;
+		}
+		&-k {
+			--top: 67%;
+		}
+
+		&-i,
+		&-k {
+			top: var(--top);
+			transition: transform var(--speed), top var(--speed);
+
+			.on & {
+				top: 50%;
+				transform: translate(-50%, -50%) rotate(135deg);
+				transition: top var(--speed), transform var(--speed);
+			}
+		}
+
+		&-j {
+			transition: transform var(--speed);
+
+			.on & {
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+		}
+
+		// 04:
+
+		&-l {
+			--top: 33%;
+		}
+		&-n {
+			--top: 67%;
+		}
+
+		&-l,
+		&-n {
+			top: var(--top);
+			transition: opacity 0s var(--speed),
+				width var(--speed) calc(var(--speed) * 2);
+
+			.on & {
+				width: 0.5em;
+				opacity: 0;
+				transition: width var(--speed), opacity 0s var(--speed);
+			}
+		}
+
+		&-m {
+			transition: transform var(--speed);
+
+			.on & {
+				transform: translate(-50%, -50%) rotate(45deg);
+				transition: transform var(--speed) calc(var(--speed) * 2);
+			}
+		}
+
+		&-o {
+			--top: 33%;
+		}
+		&-p {
+			--top: 67%;
+		}
+
+		&-o,
+		&-p {
+			top: var(--top);
+			width: 0.5em;
+			transition: top var(--speed) var(--speed),
+				height calc(var(--speed) * 2) var(--speed), transform var(--speed);
+
+			.on & {
+				top: 50%;
+				height: 50%;
+				transform: translate(-50%, -50%) rotate(45deg);
+				transition: top var(--speed) var(--speed), height calc(var(--speed) * 2),
+					transform var(--speed) calc(var(--speed) * 2);
+			}
+		}
+
+		// 05:
+
+		&-q {
+			transition: transform calc(var(--speed) * 2);
+
+			.on & {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+		}
+	}
+}
+
+svg {
+	position: absolute;
+	top: 0;
+	width: 0;
+	height: 100%;
+	width: 100%;
+
+	path {
+		fill: none;
+		stroke: black;
+		stroke-width: 8px;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.path {
+		&-a {
+			stroke: #f06292;
+			stroke-dasharray: 32 300;
+			transition: all calc(var(--speed) * 2);
+
+			.on & {
+				stroke-dasharray: 16 300;
+				stroke-dashoffset: -85;
+			}
+		}
+	}
+}
