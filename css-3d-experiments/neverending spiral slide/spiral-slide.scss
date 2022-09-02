@@ -1,0 +1,95 @@
+* {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    background-color: #111;
+}
+
+svg {
+    height: 100vh;
+}
+
+$speed: 8s;
+
+.slide {
+
+    &.front {
+        fill: url(#slide-front-bg);
+        filter: url(#shadow);
+    }
+    &.back {
+        fill: url(#slide-back-bg);
+    }
+    
+    & use {
+        stroke: #246;
+        stroke-width: 1px;
+        animation: slideUp $speed linear infinite;
+
+        &:nth-child(2) { animation-delay: $speed * (-1/3); }
+        &:nth-child(3) { animation-delay: $speed * (-2/3); }
+
+        @keyframes slideUp {
+            from { transform: translateY(840px); }
+            to { transform: translateY(-600px); }
+        }
+    }
+}
+
+.pole {
+    fill: url(#pole-bg);
+    filter: url(#shadow);
+    animation: pole ($speed/3) infinite steps(1);
+
+    &:first-of-type {
+        animation-delay: ($speed/6);
+    }
+
+    @keyframes pole {
+        0% { opacity: 0; }
+        50% { opacity: 1; }
+    }
+}
+
+.ball {
+    fill: url(#ball-bg);
+    filter: url(#shadow);
+    stroke: #0004;
+    animation: ball ($speed/6) alternate infinite ease-in-out;
+
+    @keyframes ball {
+        from { cx: 60; }
+        to { cx: 360; }
+    }
+}
+
+.ballLines {
+    animation: ballLines ($speed/6) alternate infinite ease-in-out;
+    @keyframes ballLines {
+        from { transform: rotate(15deg) translateX(-150px); transform-origin: 60px 420px; }
+        to { transform: rotate(-15deg) translateX(150px); transform-origin: 360px 420px; }
+    }
+
+    & use {
+        fill: none;
+        stroke: #0004;
+        stroke-width: 2px;
+        transform-origin: 210px;
+        animation: ballLine ($speed/8) infinite linear;
+    
+        &:nth-child(2) { animation-delay: $speed * (-1/24); }
+        &:nth-child(3) { animation-delay: $speed * (-2/24); }
+        &:nth-child(4) { animation-delay: $speed * (-3/24); }
+    
+        @keyframes ballLine {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(180deg); }
+            0%, 100% { opacity: 0; }
+            10%, 90% { opacity: 1; }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="spiral-slide.css">
+</head>
+
+<body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="-100 0 620 840">
+
+        <defs>
+
+            <linearGradient id="slide-front-bg" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#357; stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#246; stop-opacity:1" />
+            </linearGradient>
+
+            <linearGradient id="slide-back-bg" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#246; stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#123; stop-opacity:1" />
+            </linearGradient>
+
+            <linearGradient id="pole-bg" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#486; stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#153; stop-opacity:1" />
+            </linearGradient>
+
+            <radialGradient id="ball-bg" cx="25%" cy="25%" r="100%" fx="25%" fy="25%">
+                <stop offset="0%" style="stop-color:#f00; stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#000; stop-opacity:1" />
+            </radialGradient>
+
+            <filter id="shadow" x="-100%" y="-100%" width="300%" height="300%">
+                <feOffset in="SourceAlpha" result="offOut" dx="0" dy="10" />
+                <feGaussianBlur result="blurOut" in="offOut" stdDeviation="20" />
+                <feComponentTransfer in="blurOut" result="shadow">
+                    <feFuncA type="table" tableValues="0 0.5" />
+                </feComponentTransfer>
+                <feBlend in="SourceGraphic" in2="shadow" mode="normal" />
+            </filter>
+
+            <path id="slideBack"
+                d="M 420 240 c 40 120 -380 120 -420 240 q -20 60 0 120 c -40 -120 380 -120 420 -240 q 20 -60 0 -120" />
+            <path id="slidefront"
+                d="M 0 0 c -40 120 380 120 420 240 q 20 60 0 120 c 40 -120 -380 -120 -420 -240 q -20 -60 0 -120" />
+            <rect id="pole" x="170" y="0" width="80" height="840" />
+            <path id="ballLine" d="M 210 350 a 70 70 0 0 1 0 140" />
+
+        </defs>
+
+        <g class="slide back">
+            <use href="#slideBack" />
+            <use href="#slideBack" />
+            <use href="#slideBack" />
+        </g>
+
+        <use class="pole" href="#pole" />
+
+        <circle class="ball" cy="420" r="70" />
+        <g class="ballLines">
+            <use href="#ballLine" />
+            <use href="#ballLine" />
+            <use href="#ballLine" />
+            <use href="#ballLine" />
+        </g>
+
+        <use class="pole" href="#pole" />
+
+        <g class="slide front">
+            <use href="#slidefront" />
+            <use href="#slidefront" />
+            <use href="#slidefront" />
+        </g>
+
+    </svg>
+
+</body>
+
+</html>

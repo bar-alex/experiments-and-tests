@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="mandala.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="controllers">
+            <div class="control">
+                Parts<br>
+                <input class="input" type="number" name="parts" min="2" max="24" step="2" value="12">
+            </div>
+    
+            <div class="control">
+                Color<br>
+                <input class="color" type="color" name="color" value="#ff0000">
+            </div>
+    
+            <div class="control">
+                Line width<br>
+                <input class="input" type="number" name="width" min="1" max="10" step="1" value="2">
+            </div>
+    
+            <div class="control">
+                <label>
+                    <input type="checkbox" onchange="setGrid(this);" checked>
+                    Grid
+                </label>
+                <label>
+                    <input type="checkbox" onchange="setMirrored(this);" checked>
+                    Mirrored
+                </label>
+            </div>
+    
+            <div class="buttons">
+                <button onclick="clearCanvas();">
+                    <i class="fas fa-trash"></i>
+                    Clear
+                </button>
+                <button onclick="download()">
+                    <i class="fas fa-save"></i>
+                    Save
+                </button>
+            </div>
+        </div>
+    
+        <div class="mandala">
+            <canvas class="draw"></canvas>
+            <canvas class="base show"></canvas>
+        </div>
+    </div>
+
+
+    <script src="mandala.js"></script>
+</body>
+</html>

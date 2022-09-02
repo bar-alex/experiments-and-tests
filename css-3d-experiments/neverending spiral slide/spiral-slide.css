@@ -1,0 +1,176 @@
+* {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  background-color: #111;
+}
+
+svg {
+  height: 100vh;
+}
+
+.slide.front {
+  fill: url(#slide-front-bg);
+  filter: url(#shadow);
+}
+.slide.back {
+  fill: url(#slide-back-bg);
+}
+.slide use {
+  stroke: #246;
+  stroke-width: 1px;
+  -webkit-animation: slideUp 8s linear infinite;
+          animation: slideUp 8s linear infinite;
+}
+.slide use:nth-child(2) {
+  -webkit-animation-delay: -2.6666666667s;
+          animation-delay: -2.6666666667s;
+}
+.slide use:nth-child(3) {
+  -webkit-animation-delay: -5.3333333333s;
+          animation-delay: -5.3333333333s;
+}
+@-webkit-keyframes slideUp {
+  from {
+    transform: translateY(840px);
+  }
+  to {
+    transform: translateY(-600px);
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(840px);
+  }
+  to {
+    transform: translateY(-600px);
+  }
+}
+
+.pole {
+  fill: url(#pole-bg);
+  filter: url(#shadow);
+  -webkit-animation: pole 2.6666666667s infinite steps(1);
+          animation: pole 2.6666666667s infinite steps(1);
+}
+.pole:first-of-type {
+  -webkit-animation-delay: 1.3333333333s;
+          animation-delay: 1.3333333333s;
+}
+@-webkit-keyframes pole {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes pole {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.ball {
+  fill: url(#ball-bg);
+  filter: url(#shadow);
+  stroke: rgba(0, 0, 0, 0.2666666667);
+  -webkit-animation: ball 1.3333333333s alternate infinite ease-in-out;
+          animation: ball 1.3333333333s alternate infinite ease-in-out;
+}
+@-webkit-keyframes ball {
+  from {
+    cx: 60;
+  }
+  to {
+    cx: 360;
+  }
+}
+@keyframes ball {
+  from {
+    cx: 60;
+  }
+  to {
+    cx: 360;
+  }
+}
+
+.ballLines {
+  -webkit-animation: ballLines 1.3333333333s alternate infinite ease-in-out;
+          animation: ballLines 1.3333333333s alternate infinite ease-in-out;
+}
+@-webkit-keyframes ballLines {
+  from {
+    transform: rotate(15deg) translateX(-150px);
+    transform-origin: 60px 420px;
+  }
+  to {
+    transform: rotate(-15deg) translateX(150px);
+    transform-origin: 360px 420px;
+  }
+}
+@keyframes ballLines {
+  from {
+    transform: rotate(15deg) translateX(-150px);
+    transform-origin: 60px 420px;
+  }
+  to {
+    transform: rotate(-15deg) translateX(150px);
+    transform-origin: 360px 420px;
+  }
+}
+.ballLines use {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.2666666667);
+  stroke-width: 2px;
+  transform-origin: 210px;
+  -webkit-animation: ballLine 1s infinite linear;
+          animation: ballLine 1s infinite linear;
+}
+.ballLines use:nth-child(2) {
+  -webkit-animation-delay: -0.3333333333s;
+          animation-delay: -0.3333333333s;
+}
+.ballLines use:nth-child(3) {
+  -webkit-animation-delay: -0.6666666667s;
+          animation-delay: -0.6666666667s;
+}
+.ballLines use:nth-child(4) {
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+@-webkit-keyframes ballLine {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+}
+@keyframes ballLine {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=spiral-slide.css.map */

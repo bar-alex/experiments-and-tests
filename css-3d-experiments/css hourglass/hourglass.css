@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Yellowtail&display=swap");
+* {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Yellowtail", cursive;
+  background-color: #eee;
+  color: #777;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 24px;
+  width: 420px;
+  text-align: left;
+}
+
+.container {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
+
+.hourglass {
+  position: relative;
+  width: 100;
+  height: 100%;
+  -webkit-animation: rotateGlass 60s ease-in-out infinite;
+          animation: rotateGlass 60s ease-in-out infinite;
+}
+@-webkit-keyframes rotateGlass {
+  0%, 90% {
+    transform: rotate(0deg);
+    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.15));
+  }
+  100% {
+    transform: rotate(180deg);
+    filter: drop-shadow(-2px -4px 8px rgba(0, 0, 0, 0.15));
+  }
+}
+@keyframes rotateGlass {
+  0%, 90% {
+    transform: rotate(0deg);
+    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.15));
+  }
+  100% {
+    transform: rotate(180deg);
+    filter: drop-shadow(-2px -4px 8px rgba(0, 0, 0, 0.15));
+  }
+}
+
+.wood {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: saddlebrown;
+  width: 220px;
+  height: 30px;
+  border-radius: 5px;
+  background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.15), rgba(255, 255, 255, 0.25));
+  background-size: 200%, 100%;
+  -webkit-animation: woodGlr 60s infinite linear;
+          animation: woodGlr 60s infinite linear;
+}
+.wood:nth-child(1) {
+  top: 20px;
+}
+.wood:nth-child(2) {
+  bottom: 20px;
+}
+@-webkit-keyframes woodGlr {
+  0%, 90% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+@keyframes woodGlr {
+  0%, 90% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.top {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 200px;
+  height: 110px;
+  border: 2px solid saddlebrown;
+  border-radius: 20px 20px 200px 200px;
+  transform: translateX(-50%) scale(1, 1.5);
+  transform-origin: bottom;
+  overflow: hidden;
+}
+.top::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: sandybrown;
+  -webkit-animation: sandHeightTop 60s linear infinite;
+          animation: sandHeightTop 60s linear infinite;
+  filter: blur(3px);
+}
+@-webkit-keyframes sandHeightTop {
+  0% {
+    height: 100%;
+  }
+  90%, 100% {
+    height: 0%;
+  }
+}
+@keyframes sandHeightTop {
+  0% {
+    height: 100%;
+  }
+  90%, 100% {
+    height: 0%;
+  }
+}
+
+.bottom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 110px;
+  border: 2px solid saddlebrown;
+  border-radius: 200px 200px 20px 20px;
+  transform: translateX(-50%) scale(1, 1.5);
+  transform-origin: top;
+  overflow: hidden;
+}
+.bottom_sand {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: sandybrown;
+  transform: scale(3, 1);
+  -webkit-animation: sandTop 60s linear infinite;
+          animation: sandTop 60s linear infinite;
+}
+.bottom_sand::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  background-color: sandybrown;
+  transform: translateX(-50%) rotate(45deg);
+  -webkit-animation: sandAngle 60s linear infinite;
+          animation: sandAngle 60s linear infinite;
+  filter: blur(2px);
+}
+@-webkit-keyframes sandTop {
+  0% {
+    top: 135%;
+  }
+  90%, 100% {
+    top: 20%;
+  }
+}
+@keyframes sandTop {
+  0% {
+    top: 135%;
+  }
+  90%, 100% {
+    top: 20%;
+  }
+}
+@-webkit-keyframes sandAngle {
+  0% {
+    border-radius: 5px;
+  }
+  90%, 100% {
+    border-radius: 50px;
+  }
+}
+@keyframes sandAngle {
+  0% {
+    border-radius: 5px;
+  }
+  90%, 100% {
+    border-radius: 50px;
+  }
+}
+
+.mid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 6px;
+  border: solid saddlebrown;
+  border-width: 0 3px;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  background-color: sandybrown;
+}
+.mid::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: sandybrown;
+  width: 12px;
+  height: 14px;
+  border-radius: 50%;
+  filter: blur(3px);
+}
+
+.drop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: sandybrown;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  filter: blur(3px);
+  --dropx: -50%;
+  -webkit-animation: sandDrop 0.6s ease-in infinite, dropVis 60s linear infinite;
+          animation: sandDrop 0.6s ease-in infinite, dropVis 60s linear infinite;
+}
+.drop:nth-child(1) {
+  -webkit-animation-delay: 0s, 60s;
+          animation-delay: 0s, 60s;
+  --dropx: -100%;
+}
+.drop:nth-child(2) {
+  -webkit-animation-delay: 0.06s, 60s;
+          animation-delay: 0.06s, 60s;
+  --dropx: 30%;
+}
+.drop:nth-child(3) {
+  -webkit-animation-delay: 0.12s, 60s;
+          animation-delay: 0.12s, 60s;
+  --dropx: -40%;
+}
+.drop:nth-child(4) {
+  -webkit-animation-delay: 0.18s, 60s;
+          animation-delay: 0.18s, 60s;
+  --dropx: 90%;
+}
+.drop:nth-child(5) {
+  -webkit-animation-delay: 0.24s, 60s;
+          animation-delay: 0.24s, 60s;
+  --dropx: 20%;
+}
+.drop:nth-child(6) {
+  -webkit-animation-delay: 0.3s, 60s;
+          animation-delay: 0.3s, 60s;
+  --dropx: -50%;
+}
+.drop:nth-child(7) {
+  -webkit-animation-delay: 0.36s, 60s;
+          animation-delay: 0.36s, 60s;
+  --dropx: 80%;
+}
+.drop:nth-child(8) {
+  -webkit-animation-delay: 0.42s, 60s;
+          animation-delay: 0.42s, 60s;
+  --dropx: 10%;
+}
+.drop:nth-child(9) {
+  -webkit-animation-delay: 0.48s, 60s;
+          animation-delay: 0.48s, 60s;
+  --dropx: -60%;
+}
+.drop:nth-child(10) {
+  -webkit-animation-delay: 0.54s, 60s;
+          animation-delay: 0.54s, 60s;
+  --dropx: 70%;
+}
+@-webkit-keyframes sandDrop {
+  from {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    top: calc(50% + 160px);
+    transform: translate(var(--dropx), -50%) scale(0.25);
+  }
+}
+@keyframes sandDrop {
+  from {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    top: calc(50% + 160px);
+    transform: translate(var(--dropx), -50%) scale(0.25);
+  }
+}
+@-webkit-keyframes dropVis {
+  0% {
+    opacity: 0;
+  }
+  1%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes dropVis {
+  0% {
+    opacity: 0;
+  }
+  1%, 100% {
+    opacity: 1;
+  }
+}
+
+.glare {
+  position: absolute;
+  filter: blur(10px);
+  width: 120px;
+  height: 80px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 0 0 15px 0;
+}
+.glare:nth-child(1) {
+  top: 19%;
+  left: 29%;
+  transform: rotate(70deg);
+  -webkit-animation: glrClr1 60s infinite linear;
+          animation: glrClr1 60s infinite linear;
+}
+.glare:nth-child(2) {
+  bottom: 19%;
+  left: 29%;
+  transform: rotate(110deg);
+  -webkit-animation: glrClr1 60s infinite linear;
+          animation: glrClr1 60s infinite linear;
+}
+.glare:nth-child(3) {
+  top: 19%;
+  right: 29%;
+  transform: rotate(-70deg);
+  -webkit-animation: glrClr2 60s infinite linear;
+          animation: glrClr2 60s infinite linear;
+}
+.glare:nth-child(4) {
+  bottom: 19%;
+  right: 29%;
+  transform: rotate(-110deg);
+  -webkit-animation: glrClr2 60s infinite linear;
+          animation: glrClr2 60s infinite linear;
+}
+@-webkit-keyframes glrClr1 {
+  0%, 90% {
+    border-color: rgba(255, 255, 255, 0.85);
+  }
+  100% {
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+}
+@keyframes glrClr1 {
+  0%, 90% {
+    border-color: rgba(255, 255, 255, 0.85);
+  }
+  100% {
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+}
+@-webkit-keyframes glrClr2 {
+  0%, 90% {
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0.85);
+  }
+}
+@keyframes glrClr2 {
+  0%, 90% {
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0.85);
+  }
+}/*# sourceMappingURL=hourglass.css.map */
