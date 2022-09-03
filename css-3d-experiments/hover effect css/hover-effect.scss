@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
+
+*, *::before, *::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 12px;
+}
+
+$backClr: #aaa;
+$textClr: #012;
+
+body {
+  font-family: 'Oleo Script', cursive;
+  background-color: $backClr;
+  color: $textClr;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.banner {
+  position: relative;
+  width: 60em; height: 9em;
+  display: flex;
+  perspective: 15em;
+  perspective-origin: 50% calc(50% - 15em);
+  cursor:text;
+
+  & > .text {
+    left: -5rem;
+
+    & .text {
+      left: 1rem;
+    }
+  }
+
+  $divs: '.text';
+  @for $i from 0 to 70 {
+    & > #{$divs} > .content::after {
+      left: #{35 - $i}rem;
+    }
+    $divs: $divs + ' > .text';
+  }
+}
+
+.trigger {
+  position: relative;
+  width: 1em; height: 9em;
+
+  &:hover::after {
+    content: '';
+    position: absolute;
+    top: 55%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12em; height: 12em;
+    background-image: radial-gradient(#0007, #0000 66%);
+    user-select: none;
+    pointer-events: none;
+
+  }
+
+  @for $i from 0 to 60 {
+    &:nth-child(#{$i + 1}):hover {
+
+      $divs: '.text';
+      @for $ii from 0 to ($i) {
+        $divs: $divs + ' > .text';
+      }
+
+      $angle: 5deg;
+
+      @for $ii from 0 to 12 {
+
+        & ~ #{$divs} {
+
+          @if ($ii < 3) {
+            transform: rotateY(#{$angle * -1});
+          } @else if ($ii > 8) {
+            transform: rotateY(#{$angle * -1});
+          } @else  {
+            transform: rotateY($angle);
+          }
+          $c: (7 - abs($ii - 6)) * 1%;
+          background-color: lighten($backClr, $c);
+          color: lighten($textClr, $c);
+        }
+        $divs: $divs + ' > .text';
+      }
+    }
+  }
+}
+
+.text {
+  position: absolute;
+  top: 0;
+  width: 1em; height: 9em;
+  user-select: none;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  transform-origin: left;
+
+  & .content {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    overflow: hidden;
+
+    &::after {
+      content: "How's that for a hover effect?";
+      white-space: nowrap;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 5em;
+    }
+  }
+}
