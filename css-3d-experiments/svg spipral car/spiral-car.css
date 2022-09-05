@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+body {
+    font-family: Lato, sans-serif;
+    text-align: center;
+    color: #555;
+    min-height: 100vh;
+    background-image: linear-gradient(45deg, #1c1550, #27277a);
+}
+
+svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80vw;
+    max-height: 80vh
+}
+
+.road {
+    fill: none;
+    stroke: #0074bc;
+    stroke-width: 3px;
+    stroke-linecap: round;  
+}
+
+.car {
+    fill: none;
+    stroke: #f88a25;
+    stroke-width: 15px;
+    stroke-dasharray: 25, 7216;
+    stroke-dashoffset: 30;
+    stroke-linecap: round;
+    animation: drive 60s linear infinite;
+}  
+
+@keyframes drive {
+    from { stroke-dashoffset: 25; }
+    to { stroke-dashoffset: 7266; }
+}
