@@ -19,9 +19,12 @@ svg {
 
 .road {
     fill: none;
+    fill: aquamarine;
+    fill-opacity: .1;
     stroke: #0074bc;
     stroke-width: 3px;
     stroke-linecap: round;  
+    /* stroke-linecap: square; */
 }
 
 .car {
