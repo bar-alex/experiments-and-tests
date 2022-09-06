@@ -27,11 +27,19 @@ svg {
 .car {
     fill: none;
     stroke: #f88a25;
-    stroke-width: 15px;
+    stroke-width: 10px;
     stroke-dasharray: 25, 7216;
-    stroke-dashoffset: 30;
+    stroke-dashoffset: 300;
+    /* stroke-linecap: round; */
     stroke-linecap: round;
-    animation: drive 60s linear infinite;
+    /* stroke-linejoin: bevel; */
+    stroke-opacity: .8;
+    /* animation: drive 60s linear infinite; */
+    /* animation: drive 30s ease-out infinite; */
+    /* animation: drive 20s linear infinite; */
+    --cubic: cubic-bezier(.5,2,.42,-0.84);
+    animation: drive 30s var(--cubic) infinite;
+    
 }  
 
 @keyframes drive {
