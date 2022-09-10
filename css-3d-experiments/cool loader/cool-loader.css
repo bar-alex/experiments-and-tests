@@ -25,6 +25,9 @@ body {
     transform: translateX(-50%);
     border-radius: 10px;
     animation-name: tur_left, tur_width;
+    /* animation-name: tur_width, tur_left; */
+    /* animation-name: tur_width; */
+    /* animation-name: tur_left; */
     animation-direction: normal;
     animation-timing-function: ease-in-out ;
     animation-duration: 6s;
@@ -48,6 +51,7 @@ body {
     60% { width: 20px; }
 }
 
+
 .cont:nth-child(1)  { transform: rotate(000deg); }
 .cont:nth-child(2)  { transform: rotate(018deg); }
 .cont:nth-child(3)  { transform: rotate(036deg); }
@@ -58,6 +62,11 @@ body {
 .cont:nth-child(8)  { transform: rotate(126deg); }
 .cont:nth-child(9)  { transform: rotate(144deg); }
 .cont:nth-child(10) { transform: rotate(162deg); }
+
+
+/* .cont:nth-child(1)  { transform: skew(030deg); }
+.cont:nth-child(3)  { transform: skew(060deg); }
+.cont:nth-child(5)  { transform: skew(120deg); } */
 
 .cont:nth-child(1)  .tur { animation-delay: 0.0s; background: #0D47A1; }
 .cont:nth-child(2)  .tur { animation-delay: 0.3s; background: #01579B; }
