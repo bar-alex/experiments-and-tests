@@ -34,13 +34,26 @@ body {
     animation-iteration-count: infinite;
 }
 
-@keyframes tur_left {
+/* @keyframes tur_left {
     0% { left: 10px; }
     10% { left: 310px; }
     50% { left: 310px; }
     60% { left: 10px; }
     100% { left: 10px; }
+} */
+
+
+@keyframes tur_left {
+    0%   { left:  10px; transform: skew(000deg); }
+    10%  { left: 310px; }
+    20%  { transform: skew(060deg); }
+    40%  { transform: skew(120deg); }
+    50%  { left: 310px; }
+    60%  { left:  10px; transform: skew(180deg); }
+    80%  { transform: skew(240deg); }
+    100% { left:  10px; transform: skew(300deg); }
 }
+
 
 @keyframes tur_width {
     0% { width: 20px; }
