@@ -30,7 +30,9 @@ body {
     /* animation-name: tur_width; */
     /* animation-name: tur_left; */
     /* animation-name: tur_swirl, tur_left, tur_width ; */
-    animation-name: tur_swirl, tur_width ;
+    /* animation-name: tur_swirl, tur_width ; */
+    /* animation-name: tur_swirl; */
+    animation-name: tur_left;
     
     animation-direction: normal;
     animation-timing-function: ease-in-out ;
