@@ -24,26 +24,30 @@ body {
     height: 40px;
     transform: translateX(-50%);
     border-radius: 10px;
-    animation-name: tur_left, tur_width;
+    /* animation-name: tur_left, tur_width; */
+
     /* animation-name: tur_width, tur_left; */
     /* animation-name: tur_width; */
     /* animation-name: tur_left; */
+    /* animation-name: tur_swirl, tur_left, tur_width ; */
+    animation-name: tur_swirl, tur_width ;
+    
     animation-direction: normal;
     animation-timing-function: ease-in-out ;
     animation-duration: 6s;
     animation-iteration-count: infinite;
 }
 
-/* @keyframes tur_left {
+@keyframes tur_left {
     0% { left: 10px; }
     10% { left: 310px; }
     50% { left: 310px; }
     60% { left: 10px; }
     100% { left: 10px; }
-} */
+}
 
 
-@keyframes tur_left {
+/* @keyframes tur_left {
     0%   { left:  10px; transform: skew(000deg); }
     10%  { left: 310px; }
     20%  { transform: skew(060deg); }
@@ -52,7 +56,7 @@ body {
     60%  { left:  10px; transform: skew(180deg); }
     80%  { transform: skew(240deg); }
     100% { left:  10px; transform: skew(300deg); }
-}
+} */
 
 
 @keyframes tur_width {
@@ -63,6 +67,19 @@ body {
     55% { width: 320px; }
     60% { width: 20px; }
 }
+
+
+@keyframes tur_swirl {
+    /* 00% { transform: rotateZ(000deg); } */
+    /* 00% { transform: rotateZ(000deg); } */
+    02% { transform: rotateX(060deg); }
+    04% { transform: rotateX(120deg); }
+    06% { transform: rotateX(180deg); }
+    08% { transform: rotateX(240deg); }
+    09% { transform: rotateX(300deg); }
+    12% { transform: rotateX(360deg); }
+}
+
 
 
 .cont:nth-child(1)  { transform: rotate(000deg); }
