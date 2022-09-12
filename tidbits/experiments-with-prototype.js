@@ -16,14 +16,32 @@ const test = {
     // __proto__: new Error(),
     // __proto__: new Map(),
     // __proto__: tm,
-    __proto__: JSON,
+    // __proto__: JSON,
+    // __proto__: { b: 'xyz', c: false },
+    // __proto__: { b: 'xyz', c: false, __proto__: { c: true, d: Date( Date.now() ) } },
+    __proto__: { 
+            b: 'xyz', c: false, 
+            __proto__: { 
+                    c: true, d: Date( Date.now() ).split(' ').slice(1,4).join(' '), 
+                    e () {return this.c} 
+                } 
+            },
 }
 
 console.log( typeof test );
-
 console.log( typeof test.__proto__ );
+console.log( typeof test.__proto__.__proto__ );
+console.log( typeof test.__proto__.__proto__.__proto__ );
 
+console.log( test );
+console.log( test.__proto__ );
+console.log( test.__proto__.__proto__ );
+console.log( test.__proto__.__proto__.__proto__ );
 console.log( test.prototype );
+
+
+console.log( test.a, test.b, test.c, test.d, test.e() );
+
 
 console.log( test.call );
 console.log( test.apply );
@@ -63,3 +81,6 @@ console.log( test.getFullYear );
 console.log( test.getDate );
 
 console.log( Object.keys( test ) );
+console.log( Object.keys( test.__proto__ ) );
+
+
