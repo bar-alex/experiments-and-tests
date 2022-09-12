@@ -84,3 +84,38 @@ console.log( Object.keys( test ) );
 console.log( Object.keys( test.__proto__ ) );
 
 
+
+
+const boxPrototype = {
+    getValue() { return +this.value; }
+};
+
+const boxes = [
+    { value: 1, __proto__: boxPrototype }, 
+    { value: 2, __proto__: boxPrototype }, 
+    { value: 3, __proto__: boxPrototype }, 
+]
+
+console.log( boxes )
+console.log( boxes[1].getValue(), typeof boxes[1].getValue() );
+
+
+
+
+function Box (value) {
+    this.value = value;
+}
+
+Box.prototype.getValue = function () {
+    return +this.value;
+}
+
+const boxesList = [
+    new Box(1), 
+    new Box(2), 
+    new Box('3'), 
+]
+
+console.log( boxesList )
+console.log( boxesList[2], boxesList[2].getValue(), typeof boxesList[2].getValue() );
+
