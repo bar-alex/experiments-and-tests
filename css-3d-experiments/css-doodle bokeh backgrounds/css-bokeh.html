@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css-bokeh.css">
+    <script src="https://unpkg.com/css-doodle@0.29.1/css-doodle.min.js" defer></script>
+</head>
+<body>
+
+    <css-doodle class="doodle" grid="12">
+        :doodle {
+          @grid: 12 / 100vmax;
+          background: #0a0c27;
+          filter: blur(1.5px);
+          transform: scale(1.1)
+        }
+
+        @shape: circle;
+        background: hsla(@index(), 70%, 68%, @rand(0.6));
+        transform:
+          scale(@rand(.2, 1.2))
+          translate(
+            @rand(-50%, 50%), @rand(-50%, 50%)
+          );
+      </css-doodle>
+
+</body>
+</html>

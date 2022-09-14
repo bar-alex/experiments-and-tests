@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css-mountains.css">
+    <script src="https://unpkg.com/css-doodle@0.29.1/css-doodle.min.js" defer></script>
+</head>
+<body>
+
+    <css-doodle> 
+        <style>
+          @seed: 1662541895232;
+          :doodle {
+            @grid: 1 / 600px;
+            overflow: hidden;
+            background: #000;
+          }
+          @place: center;
+          @size: 140% 130%;
+          background:
+            linear-gradient(35deg, #000, #900a, #000),
+            @m2(linear-gradient(
+              @pn(165deg, -165deg),
+              @stripe.@m10(hwb(calc(120 + 80/@N*@n) 5% calc(90%/@N*@n)) @r(20%))
+            )),
+            linear-gradient(#373640,#63686e,#7e97a6,#b6f7c1);
+          background-blend-mode: overlay;
+          mask: radial-gradient(circle at 30% 10%, #fff 30%, #0000);
+          filter:
+            @filter(.003 .008, 80, @r(1000), 10)
+            @M2.@filter(.016, 20, @r(10000), 20)
+            @filter(.4 .016, 10, @r(10000), 20)
+            @filter(.016, 20, @r(10000))
+            brightness(4.5)
+            hue-rotate(92deg);
+        </style>
+      </css-doodle> 
+
+</body>
+</html>
