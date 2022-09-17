@@ -1,0 +1,76 @@
+@layer normalize, open-props, base, mdl, demo;
+
+@import url(https://unpkg.com/normalize.css) layer(normalize);
+@import url(https://unpkg.com/open-props/normalize.min.css) layer(open-props);
+@import url(https://unpkg.com/open-props/open-props.min.css) layer(open-props);
+@import url(https://rodydavis.github.io/material-design-lite/css/mdl.min.css)
+layer(mdl);
+@import url(https://rodydavis.github.io/material-design-lite/css/themes/baseline.css)
+layer(mdl);
+
+@layer demo {
+dialog[open]:not(:modal) {
+    z-index: 2;
+    transform-style: preserve-3d;
+}
+
+dialog[open]:not(:modal):before {
+    content: "";
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 50%;
+    left: 50%;
+    background: hsl(0 0% 10% / 0.25);
+    transform: translate3d(-50%, -50%, -1px);
+}
+}
+
+@layer base {
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background: var(--gradient-3);
+    font-family: "Google Sans", sans-serif, system-ui;
+}
+
+.actions {
+    display: flex;
+    gap: var(--size-4);
+}
+
+dialog {
+    padding: var(--size-4);
+    gap: var(--size-2);
+    background: var(--surface-1);
+}
+
+dialog::backdrop {
+    background: hsl(0 0% 10% / 0.5);
+}
+
+dialog[open] {
+    display: grid;
+}
+
+.warning-message {
+    border: var(--size-1) solid var(--yellow-4);
+    padding: var(--size-4);
+    background: var(--gray-0);
+    position: fixed;
+    top: var(--size-4);
+    left: var(--size-4);
+}
+@supports (selector(:modal)) {
+    .warning-message {
+    display: none;
+    }
+}
+}

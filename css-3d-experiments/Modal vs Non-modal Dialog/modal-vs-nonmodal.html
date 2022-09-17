@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="modal-vs-nonmodal.css">
+    <script src="modal-vs-nonmodal.js" defer></script>
+</head>
+<body>
+    
+    <div class="warning-message">
+        :modal isn't supported in this browser :(
+    </div>
+    <dialog>
+        <p>I'm a Dialog</p>
+        <button>Close</button>
+    </dialog>
+    <div class="actions">
+        <button data-modal="true">Open Modal</button>
+        <button data-modal="false">Open Non-modal</button>
+    </div>
+
+</body>
+</html>
