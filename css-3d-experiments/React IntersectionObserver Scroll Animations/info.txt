@@ -1,0 +1,3 @@
+https://codepen.io/jh3y/pen/JjLQXBE
+
+not really nice, the takeway is on how to use reactjs standalone, although, this babel doesn't like <>
