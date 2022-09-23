@@ -32,13 +32,21 @@
             margin-top: 100px;
             rotate: 40deg;
             transition: rotate 500ms ease;
+            --content: '.';
+            --opacity: .6;
+            --color: white;
+            /* --rotate: 0deg; */
         }
 
-        .angled-zoom::before {
-            content: ' ';
+        .angled-zoom::after {
+            content: var(--content, ':');
+            opacity: var(--opacity, 1);
+            /* stroke-opacity: var(--opacity, 1); */
+            color: var(--color, white);
+            /* rotate: var(--rotate, 0deg); */
             height: 100px;
             width: 100px;
-            scale: 1.5 ;
+            scale: 1.6 ;
             display: inline-block;
             rotate: 0deg;
             box-shadow: 
@@ -46,11 +54,16 @@
                 0 0 2rem rgb(255 255 255 / 0.7) inset;
             /* border: 1px solid white; */
             border-radius: 50px;
+            transition: content ease, opacity 500ms ease, color 500ms ease;
         }
 
 
         .angled-zoom:hover {
             rotate: -90deg;
+            /* --rotate: 45deg; */
+            --content: '.';
+            --opacity: 1;
+            --color: lightpink;
         }
 
 
