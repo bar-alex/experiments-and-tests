@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+    body {
+    font-family: system-ui;
+    padding: 20rem 3rem;
+    background-color: hsl(200 50% 5%);
+    }
+
+    section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    }
+
+    section > div {
+    background-color: hsl(200 20% 95%);
+    padding: 1rem;
+    box-shadow: 0 0 1rem hsl(0 0% 0% / 0.15);
+    }
+
+
+    div:has(h1) {
+        background-color: hotpink;
+    }
+
+    div:has(p) {
+        background-color: lime;
+    }
+
+    div:has(p:empty) {
+        background-color: lightcyan;
+    }
+
+    div:has(.fancy-paragraph) {
+        background-color: lightsalmon;
+    }
+
+    /* div:has(p>a) { */
+        div:has(> a) {
+        background-color: steelblue;
+    }
+
+</style>
+</head>
+<body>
+
+    <section>
+        <div>
+            <h1>This div has a title</h1>
+        </div>
+        <div>
+            <p>This div ha s aregular paragraph</p>
+        </div>
+        <div>
+            <!-- <p></p> -->
+            <a href=""></a>
+        </div>
+        <div>
+            <p class="fancy-paragraph">This div has a fancy class</p>
+        </div>
+        <div>
+            <p>This div has a <a href="£">link inside</a> that pointsto nowhere</p>
+        </div>
+        <div>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam 
+                enim quo iure voluptate amet quas delectus.</p>
+        </div>
+    </section>
+
+</body>
+
+</html>
