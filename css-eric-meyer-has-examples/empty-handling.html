@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- https://codepen.io/meyerweb/pen/YzegYPM -->
+
+    <style>
+        .test { /* all the test boxes */
+            border: 3px dotted red;
+            padding: 1em;
+        }
+        .test:empty { /* if the test box itself is :empty */
+            border-color: lime;
+        }
+        .test:has(:empty) { /* if the test box contains an :empty element */
+            border-style: double;
+        }
+        .test:not(:has(:not(:empty))) { /* if the test box does not contain a thing that is not :empty */
+            background: yellow;
+        }
+
+        /* =-=-= ACTUAL TESTING ENDS HERE =-=-= */
+
+        /* prettifying styles follow */
+
+        html {
+            background-color: hsl(0deg, 5%, 93%);
+            font-family: sans-serif;
+        }
+        section {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(15ch,1fr));
+            gap: 2em;
+            padding: 1em;
+        }
+
+        @media (max-width: 100ch) {
+            section {
+                grid-template-columns: repeat(auto-fit, minmax(15ch,1fr));
+            }
+        }
+
+        figure {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            gap: 0.5em;
+            border: 1px solid gray;
+            padding: 1em 2em;
+            margin: 0;
+            background: #fff;
+            box-shadow: 0.67em 0.67em 1em #0002;
+        }
+        figcaption {
+            font-size: calc(1em - 1px);
+        }
+        input, textarea, img {
+            max-width: 100%;
+        }
+        img {
+            max-height: 2.5em;
+        }
+
+        /* Warning message 
+        about support for :has() */
+
+        #notices {
+            font-family: Helvetica;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        #notices small {
+            color: white;
+            padding: 1.25rem 3rem;
+            font-size: inherit;
+            background: red;
+            box-shadow: 0 0 1em 2px yellow, 1em 1em 2em 1em #0006;
+            display: block;
+            max-width: max-content;
+            margin: 0 auto;
+        }
+        #notices a {
+            color: inherit;
+            text-underline-offset: 0.125em;
+            text-decoration-color: #FFFD;
+        }
+        #notices a:hover {
+            color: rgba(255, 255, 255, 0.75);
+        }
+        #notices code {
+            font-family: courier;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.33);
+        }
+        #notices:has(small) {
+            display: none;
+        }
+    </style>
+</head> 
+<body>
+    <section>
+
+        <figure>
+            <div class="test"></div>
+            <figcaption>Empty.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test"> </div>
+            <figcaption>Whitespace.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test">
+                <span></span>
+            </div>
+            <figcaption>Nested empty element.</figcaption>
+        </figure>
+
+        <figure>
+            <div class="test">
+                <span>
+                    <b></b>
+                </span>
+            </div>
+            <figcaption>Nested empty elements, plural.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test">
+                <span></span>
+                <b></b>
+            </div>
+            <figcaption>Nested empty siblings.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test">
+                <span>content</span>
+            </div>
+            <figcaption>Nested element with content.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test">
+                <span>
+                    content<b></b>
+                </span>
+            </div>
+            <figcaption>Nested element with content and a nested empty element.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test">
+                <span>content</span>
+                <b></b>
+            </div>
+            <figcaption>Nested element with content and a sibling empty element.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test">
+                <img src="https://meyerweb.com/pix/mwcts.gif">
+            </div>
+            <figcaption>Image without alt text.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test">
+                <img 
+                    src="https://meyerweb.com/pix/mwcts.gif" 
+                    alt="Made with Cascading Style Sheets"
+                >
+            </div>
+            <figcaption>Image with alt text.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test">
+                <input type="checkbox">
+                <input type="radio">
+            </div>
+            <figcaption>Checkbox/radio.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test">
+                <input type="text">
+            </div>
+            <figcaption>Text input.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test">
+                <input type="text" value="Default text">
+            </div>
+            <figcaption>Text input with default text.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test">
+                <textarea></textarea>
+            </div>
+            <figcaption>Textarea.</figcaption>
+        </figure>
+        
+        <figure>
+            <div class="test">
+                <textarea>Default text</textarea>
+            </div>
+            <figcaption>Textarea with default text.</figcaption>
+        </figure>
+        
+    </section>
+        
+    <div id="notices">
+        <small>
+            This pen is a demonstration of combining 
+            <code>:empty</code> and 
+            <a href="https://caniuse.com/css-has" target="_blank">
+                <code>:has()</code>, which your browser does not support
+            </a>.
+        </small>
+    </div>
+</body>
+</html>
