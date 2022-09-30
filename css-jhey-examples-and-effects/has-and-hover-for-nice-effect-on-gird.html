@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- https://codepen.io/jh3y/pen/OJvzKNE -->
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+        }
+
+        .grid {
+            width: 75vmin;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+        }
+
+        .grid__item {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .grid__item:after {
+            content: "";
+            position: absolute;
+            inset: 2%;
+            background: hsl(280 80% 50%);
+            transition: all 0.2s;
+        }
+
+        .grid:has(.grid__item:hover) .grid__item:not(:hover) {
+            opacity: 0.15;
+        }
+
+        .grid__item:hover:after {
+            transform: scale(1.1);
+            background-color: hsl(320 80% 50%);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid">
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+        <div class="grid__item"></div>
+    </div>
+
+</body>
+</html>
