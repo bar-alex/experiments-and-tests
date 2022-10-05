@@ -1,0 +1,25 @@
+https://www.youtube.com/watch?v=DZBGEVgL2eE
+
+- Mongoose ques up all the commands and does them internally, 
+including waiting for the connection to mongoDb to be established
+
+- Schema is the plan and the model is the concrete "object" from the database for the schema
+
+- Generally, you're going to have a different file for each schema
+
+- schema.methods create methods you can use on the documents
+
+- schema.statics create functions/methods you can use on the schema (since there is no document)
+
+- schema.query create chainable methods that you can use in chains with your other query methods
+
+- pre middleware receive a next as a param, that you have to call, just like in express
+
+- post middleware receive a doc and a next and you have to call next to pass it along as well
+
+- suppress next or throw error in pre middleware to prevent the save
+
+- virtuals create "virtual" fields, i.e composed fields, you implement a getter for theme where you can return whatever you want
+
+- populate will populate the ref field with the document itself (kinda like join on sql, but not really)
+
